@@ -1,7 +1,6 @@
 import pygame
 import sys
 from Board import ROW,COL,SIZE,SCORE_FEILD,Board
-
 from Tetri import Tetrimino
 from Tetrimino_list import L
 

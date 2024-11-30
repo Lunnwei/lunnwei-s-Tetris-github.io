@@ -17,7 +17,7 @@ class Board():
     def Load_Game(self,surface):
         for j in range(COL):
             for i in range(ROW):
-                if self.board[i][j] == 0:
+                if self.board[j][i] == 0:
                     pygame.draw.rect(surface,COLOR_NONE,(j*SIZE,i*SIZE,SIZE-1,SIZE-1))
    
    

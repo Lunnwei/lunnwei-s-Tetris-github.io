@@ -1,13 +1,15 @@
 import pygame
 import numpy as np
 
-COL = 10 
+COL = 15
 # 列
-ROW = 17
+ROW = 20
 # 行
 SIZE = 45
 SCORE_FEILD = 6
 COLOR_NONE ='#3c3c3c'
+
+
 
 class Board():
     def __init__(self):

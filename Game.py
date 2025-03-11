@@ -17,7 +17,7 @@ while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
-            sys.exit()
+            sys.exit()    #Pygame模板
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_a and (my_tetrimino.Left_index(my_tetrimino.tetrimino,my_tetrimino.rotation) + my_tetrimino.position)> 0:
                 my_tetrimino.position -= 1
@@ -29,12 +29,15 @@ while True:
                     my_tetrimino.rotation = my_tetrimino.rotation
                 elif my_tetrimino.tetrimino == L and my_tetrimino.rotation ==2 and (my_tetrimino.Left_index(my_tetrimino.tetrimino,my_tetrimino.rotation) + my_tetrimino.position) == 0:
                     my_tetrimino.rotation = my_tetrimino.rotation
-                my_tetrimino.rotation += 1
+                else:
+                    my_tetrimino.rotation += 1
                 if my_tetrimino.rotation > 3:
-                    my_tetrimino.rotation = 0
+                    my_tetrimino.rotation = 0  #旋轉重置
+                   
 
 # pygame 鍵盤輸入
     Main_Window.fill('#ffffff')
     Game_Board.Update(Main_Window)
     my_tetrimino.Draw(Main_Window,my_tetrimino.tetrimino,'red',my_tetrimino.rotation)
+    
     pygame.display.update()

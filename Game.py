@@ -1,19 +1,22 @@
 import pygame
 import sys
 from Board import ROW,COL,SIZE,SCORE_FEILD,Board
-from Tetri import Tetrimino
+from Tetri import Tetrimino,Game_Board
 from Tetrimino_list import L
 
-
+FPS = 30
+                                                                                                                                              
 pygame.init()
 
 Main_Window = pygame.display.set_mode(((COL+SCORE_FEILD)*SIZE,ROW*SIZE))
 Main_Tittle = pygame.display.set_caption("俄羅斯方塊")
-Game_Board = Board()
 my_tetrimino = Tetrimino()
-
+clock = pygame.time.Clock()
 
 while True:
+    
+    clock.tick(FPS)
+
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()

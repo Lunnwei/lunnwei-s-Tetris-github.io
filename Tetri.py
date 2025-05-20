@@ -14,6 +14,7 @@ class Tetrimino():
         self.speed = 0
 
     def Draw(self,surface,tetrimino,color,rotation):
+        print("speed: ", self.speed)
         for j in range(len(tetrimino[rotation][0])):
             for i in range(len(tetrimino[rotation])):
                 if tetrimino[rotation][i][j] == '1':
@@ -23,11 +24,11 @@ class Tetrimino():
                         for x in range(len(tetrimino[rotation])): #ROW
                             for y in range(len(tetrimino[rotation][0])): #COL
                                 if tetrimino[rotation][x][y] == '1':
-                                    Game_Board.board[y+self.position][x+(self.speed)] = 1
+                                    Game_Board.board[y+self.position][x+int(self.speed)] = 1
                         self.Next_round()
 
         self.Put_into_Board(i,tetrimino,rotation,self.speed,self.position,Game_Board.board)
-        self.speed += 1
+        # self.speed += 1
         if pygame.key.get_pressed()[pygame.K_s]:
             self.speed +=1   #按住持續下降
         
@@ -77,13 +78,13 @@ class Tetrimino():
         self.speed = 0    
     
     def Put_into_Board(self,i,tetrimino,rotation,speed,postion,Game_Board):
-        if i + self.speed == ROW:
+        if i + int(self.speed) == ROW:
             for x in range(len(tetrimino[rotation])): #ROW
                 for y in range(len(tetrimino[rotation][0])): #COL
                     if tetrimino[rotation][x][y] == '1':
-                        Game_Board[y+postion][x+speed] = 1
+                        Game_Board[y+postion][int(x+speed)] = 1
             self.Next_round()
 
-def update(self,surface,tetrimino,color,rotation):
-    self.Draw(surface,tetrimino,color,rotation)
-    self.speed += 0.1
+    def update(self,surface,tetrimino,color,rotation):
+        self.Draw(surface,tetrimino,color,rotation)
+        self.speed += 0.05

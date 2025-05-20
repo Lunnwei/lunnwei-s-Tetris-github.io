@@ -4,7 +4,7 @@ from Board import ROW,COL,SIZE,SCORE_FEILD,Board
 from Tetri import Tetrimino,Game_Board
 from Tetrimino_list import L,S,Z,I,J,T
 
-FPS = 5
+FPS = 30
 GAME_ON = True                                                                                                                                            
 pygame.init()
 
@@ -79,7 +79,7 @@ while True:
 # pygame 鍵盤輸入
         Main_Window.fill('#ffffff')
         Game_Board.Update(Main_Window)
-        my_tetrimino.Draw(Main_Window,my_tetrimino.tetrimino,'red',my_tetrimino.rotation)
+        my_tetrimino.update(Main_Window,my_tetrimino.tetrimino,'red',my_tetrimino.rotation)
         
         pygame.display.update()
         if Game_Board.Game_Over():
